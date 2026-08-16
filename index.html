@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neva Duman | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Gece mavisi ve gri tonlarından ilham alan renk paleti */
+            --bg-deep: #0a0f1c; 
+            --bg-gradient-start: #111827;
+            --bg-gradient-end: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.6);
+            --text-main: #f3f4f6;
+            --text-secondary: #94a3b8; /* Soğuk gri */
+            --accent-color: #6366f1; /* Mor/Mavi karışımı vurgu */
+            --accent-glow: rgba(99, 102, 241, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at top right, #1e1b4b, transparent 40%),
+                              radial-gradient(circle at bottom left, #0f172a, var(--bg-deep) 60%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 .wave {
+            display: inline-block;
+            animation: wave 2.5s infinite;
+            transform-origin: 70% 70%;
+        }
+
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60%, 100% { transform: rotate(0deg); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-family: 'Fira Code', monospace; /* Mühendislik/Kodlama vurgusu */
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #e2e8f0;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .card strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .github-stats {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .github-stats img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .github-stats img:hover {
+            transform: scale(1.02);
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+        }
+
+        .btn-linkedin {
+            display: inline-block;
+            background: linear-gradient(135deg, #0077b5, #005582);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+        }
+
+        .btn-linkedin:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .card { padding: 1.5rem; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Hi, I'm Neva Duman! <span class="wave">👋</span></h1>
+            <p class="subtitle">&lt; Computer Engineering Student /&gt;</p>
+        </header>
+
+        <!-- Education Section -->
+        <section class="card">
+            <h2>🎓 Education</h2>
+            <p><strong>Eskişehir Osmangazi University</strong><br>
+            Computer Engineering</p>
+        </section>
+
+        <!-- GitHub Stats Section -->
+        <section class="card">
+            <h2>📊 GitHub Stats</h2>
+            <div class="github-stats">
+                <!-- Theme 'radical' kullanılarak sitenin karanlık temasıyla uyumlu hale getirildi -->
+                <a href="https://github.com/NevaDmn" target="_blank">
+                    <img src="https://github-readme-stats.vercel.app/api?username=NevaDmn&show_icons=true&theme=radical&hide_border=true&bg_color=0f172a" alt="Neva's GitHub stats">
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">📫 Want to view my background or get in touch?</p>
+            <a href="https://www.linkedin.com/in/neva-duman-a1730a334/" target="_blank" rel="noopener noreferrer" class="btn-linkedin">
+                Visit My LinkedIn
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
