@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neva Duman | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Playfair Display for headers, Open Sans for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Gece mavisi ve gri tonlarından ilham alan renk paleti */
-            --bg-deep: #0a0f1c; 
-            --bg-gradient-start: #111827;
-            --bg-gradient-end: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.6);
-            --text-main: #f3f4f6;
-            --text-secondary: #94a3b8; /* Soğuk gri */
-            --accent-color: #6366f1; /* Mor/Mavi karışımı vurgu */
-            --accent-glow: rgba(99, 102, 241, 0.5);
+            /* Pinterest-Inspired Soft Palette */
+            --bg-color: #faf8f5; /* Very soft beige/cream */
+            --card-bg: #ffffff; /* Pure white for cards */
+            --text-main: #4a4e69; /* Soft dusty purple/grey */
+            --text-secondary: #8d99ae; /* Lighter grey */
+            --accent-soft: #f4d35e; /* Soft mustard yellow */
+            --accent-peach: #f9dcc4; /* Pale peach */
+            --border-color: #e0e0e0; /* Light grey border */
         }
 
         * {
@@ -25,96 +25,125 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-deep);
-            background-image: radial-gradient(circle at top right, #1e1b4b, transparent 40%),
-                              radial-gradient(circle at bottom left, #0f172a, var(--bg-deep) 60%);
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-main);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 2rem;
-            line-height: 1.6;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
-            animation: fadeIn 1s ease-out forwards;
+            animation: fadeIn 1.2s ease-out forwards;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+        }
+
+        header img.profile-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--accent-peach);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         h1 {
-            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             font-weight: 700;
+            color: var(--text-main);
             margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        h1 .wave {
-            display: inline-block;
-            animation: wave 2.5s infinite;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            10% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            30% { transform: rotate(14deg); }
-            40% { transform: rotate(-4deg); }
-            50% { transform: rotate(10deg); }
-            60%, 100% { transform: rotate(0deg); }
+            letter-spacing: -0.01em;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            font-family: 'Fira Code', monospace; /* Mühendislik/Kodlama vurgusu */
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Pinterest Masonry-like Section */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px; /* Rounded corners for softness */
             padding: 2rem;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--accent-peach);
         }
 
+        .card.edu::before { background-color: var(--accent-peach); }
+        .card.stats::before { background-color: var(--accent-soft); }
+
         .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: #e2e8f0;
+            gap: 0.75rem;
+        }
+        
+        .card h2 span.icon {
+            font-size: 1.2rem;
+            opacity: 0.7;
         }
 
         .card p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         .card strong {
-            color: var(--text-main);
+            color: #2a2d3e; /* Slightly darker for contrast */
             font-weight: 600;
         }
 
@@ -126,45 +155,57 @@
         .github-stats img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .github-stats img:hover {
-            transform: scale(1.02);
+            border-radius: 10px;
+            /* No shadow here, keep it clean */
         }
 
         .contact-section {
             text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
+            margin-top: 4rem;
+            padding: 3rem;
+            background-color: #ffffff;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
         }
 
         .btn-linkedin {
             display: inline-block;
-            background: linear-gradient(135deg, #0077b5, #005582);
-            color: white;
+            background-color: var(--accent-peach);
+            color: var(--text-main);
             text-decoration: none;
-            padding: 1rem 2.5rem;
-            border-radius: 30px;
+            padding: 1rem 3rem;
+            border-radius: 50px;
             font-weight: 600;
             font-size: 1.1rem;
             margin-top: 1.5rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+            box-shadow: 0 4px 10px rgba(249, 220, 196, 0.4);
+            border: 2px solid transparent;
         }
 
         .btn-linkedin:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.5);
+            background-color: #f6cbb0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(249, 220, 196, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            width: 100%;
         }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .card { padding: 1.5rem; }
+        @media (max-width: 768px) {
             body { padding: 1rem; }
+            h1 { font-size: 2.2rem; }
+            .grid-container { grid-template-columns: 1fr; }
+            .card { padding: 1.5rem; }
+            .contact-section { padding: 2rem; }
         }
     </style>
 </head>
@@ -173,27 +214,31 @@
     <div class="container">
         <!-- Header Section -->
         <header>
-            <h1>Hi, I'm Neva Duman! <span class="wave">👋</span></h1>
-            <p class="subtitle">&lt; Computer Engineering Student /&gt;</p>
+            <div class="profile-icon">N</div>
+            <h1>Neva Duman</h1>
+            <p class="subtitle">Computer Engineering Student</p>
         </header>
 
-        <!-- Education Section -->
-        <section class="card">
-            <h2>🎓 Education</h2>
-            <p><strong>Eskişehir Osmangazi University</strong><br>
-            Computer Engineering</p>
-        </section>
+        <!-- Grid for Pinterest-like Layout -->
+        <div class="grid-container">
+            <!-- Education Card -->
+            <section class="card edu">
+                <h2><span class="icon">🎓</span> Education</h2>
+                <p><strong>Eskişehir Osmangazi University</strong><br>
+                Computer Engineering</p>
+            </section>
 
-        <!-- GitHub Stats Section -->
-        <section class="card">
-            <h2>📊 GitHub Stats</h2>
-            <div class="github-stats">
-                <!-- Theme 'radical' kullanılarak sitenin karanlık temasıyla uyumlu hale getirildi -->
-                <a href="https://github.com/NevaDmn" target="_blank">
-                    <img src="https://github-readme-stats.vercel.app/api?username=NevaDmn&show_icons=true&theme=radical&hide_border=true&bg_color=0f172a" alt="Neva's GitHub stats">
-                </a>
-            </div>
-        </section>
+            <!-- GitHub Stats Card -->
+            <section class="card stats">
+                <h2><span class="icon">📊</span> GitHub Stats</h2>
+                <div class="github-stats">
+                    <!-- Adjusted for soft theme -->
+                    <a href="https://github.com/NevaDmn" target="_blank">
+                        <img src="https://github-readme-stats.vercel.app/api?username=NevaDmn&show_icons=true&theme=vue-dark&hide_border=true&bg_color=ffffff&text_color=4a4e69&icon_color=f4d35e&title_color=4a4e69" alt="Neva's GitHub stats">
+                    </a>
+                </div>
+            </section>
+        </div>
 
         <!-- Contact Section -->
         <div class="contact-section">
@@ -203,6 +248,10 @@
             </a>
         </div>
     </div>
+
+    <footer>
+        &copy; 2024 Neva Duman. Soft Portfolio Theme.
+    </footer>
 
 </body>
 </html>
