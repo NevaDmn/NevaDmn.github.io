@@ -8,14 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Pinterest-Inspired Soft Palette */
-            --bg-color: #faf8f5; /* Very soft beige/cream */
-            --card-bg: #ffffff; /* Pure white for cards */
-            --text-main: #4a4e69; /* Soft dusty purple/grey */
-            --text-secondary: #8d99ae; /* Lighter grey */
-            --accent-soft: #f4d35e; /* Soft mustard yellow */
-            --accent-peach: #f9dcc4; /* Pale peach */
-            --border-color: #e0e0e0; /* Light grey border */
+            /* Professional Soft Palette (Cream, Peach, Soft Pink) */
+            --bg-color: #faf8f5; 
+            --card-bg: rgba(255, 255, 255, 0.75); /* Yarı saydam beyaz (Glassmorphism) */
+            --text-main: #4a4e69; 
+            --text-secondary: #8d99ae; 
+            --accent-soft: #f4d35e; 
+            --accent-peach: #f9dcc4;
+            --border-color: rgba(224, 224, 224, 0.5); 
         }
 
         * {
@@ -27,6 +27,13 @@
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: var(--bg-color);
+            /* Profesyonel ve modern "Mesh Gradient" arka plan */
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(249, 220, 196, 0.45) 0%, transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(242, 213, 215, 0.6) 0%, transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(249, 220, 196, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(242, 213, 215, 0.4) 0%, transparent 40%);
+            background-attachment: fixed;
             color: var(--text-main);
             min-height: 100vh;
             padding: 2rem;
@@ -50,26 +57,12 @@
         header {
             text-align: center;
             margin-bottom: 4rem;
-            padding-top: 2rem;
-        }
-
-        header img.profile-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: var(--accent-peach);
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding-top: 3rem;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 700;
             color: var(--text-main);
             margin-bottom: 0.5rem;
@@ -94,18 +87,20 @@
 
         .card {
             background: var(--card-bg);
+            backdrop-filter: blur(12px); /* Arka plan geçişlerini hafifçe blurlar */
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
-            border-radius: 20px; /* Rounded corners for softness */
-            padding: 2rem;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
             position: relative;
             overflow: hidden;
         }
 
         .card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.04);
         }
         
         .card::before {
@@ -115,7 +110,6 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background-color: var(--accent-peach);
         }
 
         .card.edu::before { background-color: var(--accent-peach); }
@@ -130,7 +124,7 @@
             align-items: center;
             gap: 0.75rem;
         }
-        
+
         .card h2 span.icon {
             font-size: 1.2rem;
             opacity: 0.7;
@@ -143,34 +137,38 @@
         }
 
         .card strong {
-            color: #2a2d3e; /* Slightly darker for contrast */
+            color: #2a2d3e; 
             font-weight: 600;
         }
 
         .github-stats {
             text-align: center;
             margin-top: 1rem;
+            display: flex;
+            justify-content: center;
         }
 
         .github-stats img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
-            /* No shadow here, keep it clean */
         }
 
         .contact-section {
             text-align: center;
             margin-top: 4rem;
-            padding: 3rem;
-            background-color: #ffffff;
+            padding: 3.5rem 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 30px;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
         }
 
         .btn-linkedin {
             display: inline-block;
-            background-color: var(--accent-peach);
+            background-color: #f9dcc4; /* Soft peach */
             color: var(--text-main);
             text-decoration: none;
             padding: 1rem 3rem;
@@ -189,7 +187,6 @@
             box-shadow: 0 6px 15px rgba(249, 220, 196, 0.5);
         }
 
-        /* Footer */
         footer {
             margin-top: auto;
             padding: 2rem;
@@ -199,12 +196,11 @@
             width: 100%;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             body { padding: 1rem; }
             h1 { font-size: 2.2rem; }
             .grid-container { grid-template-columns: 1fr; }
-            .card { padding: 1.5rem; }
+            .card { padding: 2rem 1.5rem; }
             .contact-section { padding: 2rem; }
         }
     </style>
@@ -212,29 +208,27 @@
 <body>
 
     <div class="container">
-        <!-- Header Section -->
+        <!-- Header -->
         <header>
-            <div class="profile-icon">N</div>
+            <!-- N harfi kaldirildi -->
             <h1>Neva Duman</h1>
             <p class="subtitle">Computer Engineering Student</p>
         </header>
 
-        <!-- Grid for Pinterest-like Layout -->
+        <!-- Cards -->
         <div class="grid-container">
-            <!-- Education Card -->
             <section class="card edu">
                 <h2><span class="icon">🎓</span> Education</h2>
                 <p><strong>Eskişehir Osmangazi University</strong><br>
                 Computer Engineering</p>
             </section>
 
-            <!-- GitHub Stats Card -->
             <section class="card stats">
                 <h2><span class="icon">📊</span> GitHub Stats</h2>
                 <div class="github-stats">
-                    <!-- Adjusted for soft theme -->
                     <a href="https://github.com/NevaDmn" target="_blank">
-                        <img src="https://github-readme-stats.vercel.app/api?username=NevaDmn&show_icons=true&theme=vue-dark&hide_border=true&bg_color=ffffff&text_color=4a4e69&icon_color=f4d35e&title_color=4a4e69" alt="Neva's GitHub stats">
+                        <!-- Kirik linki onlemek icin standart ayarlar ve renklere donuldu -->
+                        <img src="https://github-readme-stats.vercel.app/api?username=NevaDmn&show_icons=true&hide_border=true&bg_color=transparent&text_color=4a4e69&icon_color=f4d35e&title_color=4a4e69" alt="Neva's GitHub stats">
                     </a>
                 </div>
             </section>
@@ -250,7 +244,7 @@
     </div>
 
     <footer>
-        &copy; 2024 Neva Duman. Soft Portfolio Theme.
+        &copy; 2026 Neva Duman. Soft & Minimal Portfolio.
     </footer>
 
 </body>
